@@ -2,7 +2,7 @@
 Summary:	Apache Stats
 Name:		cacti-template-%{template}
 Version:	0.6
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://forums.cacti.net/download/file.php?id=301#/apachestats-0.4.zip
@@ -33,17 +33,17 @@ mv apachestats-0.4/* .
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{resourcedir},%{scriptsdir}}
 install -p ss_apache_stats.php $RPM_BUILD_ROOT%{scriptsdir}
-cp -a xml/cacti_host_template_webserver_apache.xml \
+cp -a SS_Apache_Stats/cacti_host_template_webserver_apache_5min.xml \
 	$RPM_BUILD_ROOT%{resourcedir}
 
 %post
-%cacti_import_template %{resourcedir}/cacti_host_template_webserver_apache.xml
+%cacti_import_template %{resourcedir}/cacti_host_template_webserver_apache_5min.xml
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.txt
+%doc README.txt docs/*
 %attr(755,root,root) %{scriptsdir}/*
 %{resourcedir}/*.xml
