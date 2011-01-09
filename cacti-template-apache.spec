@@ -2,7 +2,7 @@
 Summary:	Apache Stats
 Name:		cacti-template-%{template}
 Version:	0.6
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://forums.cacti.net/download/file.php?id=301#/apachestats-0.4.zip
@@ -11,6 +11,7 @@ Source1:	http://forums.cacti.net/download/file.php?id=7674#/ss_apache_stats-wget
 # Source1-md5:	cb460f3c00707dcb960efe8c4ceff0c1
 Source2:	http://forums.cacti.net/download/file.php?id=7534#/SS_Apache_Stats-curl.zip
 # Source2-md5:	71112bf32403e548120b3b76eadd5a75
+Patch0:		fixes.patch
 URL:		http://forums.cacti.net/about17995.html
 BuildRequires:	rpmbuild(macros) >= 1.554
 Requires:	cacti >= 0.8.7g-6
@@ -28,6 +29,7 @@ Apache Stats for Cacti (PHP Script Server Version).
 %prep
 %setup -qc -a1 -a2
 mv apachestats-0.4/* .
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
