@@ -14,6 +14,7 @@ Source2:	http://forums.cacti.net/download/file.php?id=7534#/SS_Apache_Stats-curl
 Patch0:		fixes.patch
 URL:		http://forums.cacti.net/about17995.html
 BuildRequires:	rpmbuild(macros) >= 1.554
+BuildRequires:	unzip
 Requires:	cacti >= 0.8.7g-6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
